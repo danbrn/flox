@@ -6,7 +6,8 @@ auto create_ship_texture(gfx::renderer &r) -> std::shared_ptr<gfx::texture> {
         gfx::create_texture(r, ship_texture_size.x, ship_texture_size.y);
     r.set_target(*texture);
     r.clear();
-    r.set_draw_color(gfx::u8_max, gfx::u8_max, gfx::u8_max, SDL_ALPHA_OPAQUE);
+    r.set_draw_color(gfx::color::max_value, gfx::color::max_value,
+                     gfx::color::max_value, SDL_ALPHA_OPAQUE);
     // NOLINTBEGIN
     std::vector<SDL_Point> points{{0, 9},  {39, 9}, {0, 0}, {0, 19},
                                   {39, 9}, {1, 0},  {1, 5}, {39, 9},
@@ -22,8 +23,8 @@ auto create_boid_texture(gfx::renderer &r) -> std::shared_ptr<gfx::texture> {
         gfx::create_texture(r, boid_texture_size.x, boid_texture_size.y);
     r.set_target(*texture);
     r.clear();
-    r.set_draw_color(gfx::u8_max, gfx::u8_max / 2, gfx::u8_max / 2,
-                     SDL_ALPHA_OPAQUE);
+    r.set_draw_color(gfx::color::max_value, gfx::color::max_value / 2,
+                     gfx::color::max_value / 2, SDL_ALPHA_OPAQUE);
     std::vector<SDL_Point> points{
         {0, 9}, {39, 9}, {0, 0}, {0, 19}, {39, 9}}; // NOLINT
     r.draw_lines(points);
@@ -36,7 +37,7 @@ auto create_shot_texture(gfx::renderer &r) -> std::shared_ptr<gfx::texture> {
         gfx::create_texture(r, shot_texture_size.x, shot_texture_size.y);
     r.set_target(*texture);
     r.clear();
-    r.set_draw_color(gfx::u8_max, 0, 0, SDL_ALPHA_OPAQUE);
+    r.set_draw_color(gfx::color::max_value, 0, 0, SDL_ALPHA_OPAQUE);
     std::vector<SDL_Point> points{
         {0, 2}, {9, 2}, {0, 0}, {0, 4}, {9, 2}}; // NOLINT
     r.draw_lines(points);
